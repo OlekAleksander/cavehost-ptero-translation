@@ -33,18 +33,16 @@ const BackupContainer = () => {
     }
 
     return (
-        <ServerContentBlock title={'Backups'}>
+        <ServerContentBlock title={'Kopie zapasowe'}>
             <FlashMessageRender byKey={'backups'} css={tw`mb-4`} />
             <Pagination data={backups} onPageSelect={setPage}>
                 {({ items }) =>
                     !items.length ? (
-                        // Don't show any error messages if the server has no backups and the user cannot
-                        // create additional ones for the server.
                         !backupLimit ? null : (
                             <p css={tw`text-center text-sm text-neutral-300`}>
                                 {page > 1
-                                    ? "Looks like we've run out of backups to show you, try going back a page."
-                                    : 'It looks like there are no backups currently stored for this server.'}
+                                    ? 'Wygląda na to, że nie mamy więcej kopii zapasowych do wyświetlenia, spróbuj wrócić stronę wcześniej.'
+                                    : 'Wygląda na to, że obecnie nie ma żadnych kopii zapasowych dla tego serwera.'}
                             </p>
                         )
                     ) : (
@@ -56,14 +54,14 @@ const BackupContainer = () => {
             </Pagination>
             {backupLimit === 0 && (
                 <p css={tw`text-center text-sm text-neutral-300`}>
-                    Backups cannot be created for this server because the backup limit is set to 0.
+                    Nie można utworzyć kopii zapasowych dla tego serwera, ponieważ limit kopii zapasowych wynosi 0.
                 </p>
             )}
             <Can action={'backup.create'}>
                 <div css={tw`mt-6 sm:flex items-center justify-end`}>
                     {backupLimit > 0 && backups.backupCount > 0 && (
                         <p css={tw`text-sm text-neutral-300 mb-4 sm:mr-6 sm:mb-0`}>
-                            {backups.backupCount} of {backupLimit} backups have been created for this server.
+                            Utworzono {backups.backupCount} z {backupLimit} kopii zapasowych dla tego serwera.
                         </p>
                     )}
                     {backupLimit > 0 && backupLimit > backups.backupCount && (

@@ -6,7 +6,6 @@ import { useStoreState } from 'easy-peasy';
 import { Formik, FormikHelpers } from 'formik';
 import { object, string } from 'yup';
 import Field from '@/components/elements/Field';
-import tw from 'twin.macro';
 import Button from '@/components/elements/Button';
 import Reaptcha from 'reaptcha';
 import useFlash from '@/plugins/useFlash';
@@ -69,19 +68,24 @@ const LoginContainer = ({ history }: RouteComponentProps) => {
             onSubmit={onSubmit}
             initialValues={{ username: '', password: '' }}
             validationSchema={object().shape({
-                username: string().required('A username or email must be provided.'),
-                password: string().required('Please enter your account password.'),
+                username: string().required('Należy podać nazwę użytkownika lub adres e-mail.'),
+                password: string().required('Proszę podać hasło do konta.'),
             })}
         >
             {({ isSubmitting, setSubmitting, submitForm }) => (
-                <LoginFormContainer title={'Login to Continue'} css={tw`w-full flex`}>
-                    <Field light type={'text'} label={'Username or Email'} name={'username'} disabled={isSubmitting} />
-                    <div css={tw`mt-6`}>
-                        <Field light type={'password'} label={'Password'} name={'password'} disabled={isSubmitting} />
+                <LoginFormContainer title={'Zaloguj się, aby kontynuować'} className='w-full flex'>
+                    <Field
+                        type={'text'}
+                        label={'Nazwa użytkownika lub e-mail'}
+                        name={'username'}
+                        disabled={isSubmitting}
+                    />
+                    <div className='mt-6'>
+                        <Field type={'password'} label={'Hasło'} name={'password'} disabled={isSubmitting} />
                     </div>
-                    <div css={tw`mt-6`}>
+                    <div className='mt-6'>
                         <Button type={'submit'} size={'xlarge'} isLoading={isSubmitting} disabled={isSubmitting}>
-                            Login
+                            Zaloguj się
                         </Button>
                     </div>
                     {recaptchaEnabled && (
@@ -99,12 +103,12 @@ const LoginContainer = ({ history }: RouteComponentProps) => {
                             }}
                         />
                     )}
-                    <div css={tw`mt-6 text-center`}>
+                    <div className='mt-6 text-center'>
                         <Link
                             to={'/auth/password'}
-                            css={tw`text-xs text-neutral-500 tracking-wide no-underline uppercase hover:text-neutral-600`}
+                            className='text-xs text-neutral-500 tracking-wide no-underline uppercase hover:text-neutral-600'
                         >
-                            Forgot password?
+                            Zapomniałeś hasła?
                         </Link>
                     </div>
                 </LoginFormContainer>

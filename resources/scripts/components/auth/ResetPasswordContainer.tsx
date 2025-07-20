@@ -10,7 +10,6 @@ import { Formik, FormikHelpers } from 'formik';
 import { object, ref, string } from 'yup';
 import Field from '@/components/elements/Field';
 import Input from '@/components/elements/Input';
-import tw from 'twin.macro';
 import Button from '@/components/elements/Button';
 
 interface Values {
@@ -52,43 +51,59 @@ export default ({ match, location }: RouteComponentProps<{ token: string }>) => 
             }}
             validationSchema={object().shape({
                 password: string()
-                    .required('A new password is required.')
-                    .min(8, 'Your new password should be at least 8 characters in length.'),
+                    .required('Wymagane jest nowe hasło.')
+                    .min(8, 'Twoje nowe hasło powinno mieć co najmniej 8 znaków.'),
                 passwordConfirmation: string()
-                    .required('Your new password does not match.')
+                    .required('Twoje nowe hasło nie pasuje.')
                     // @ts-expect-error this is valid
-                    .oneOf([ref('password'), null], 'Your new password does not match.'),
+                    .oneOf([ref('password'), null], 'Twoje nowe hasło nie pasuje.'),
             })}
         >
             {({ isSubmitting }) => (
-                <LoginFormContainer title={'Reset Password'} css={tw`w-full flex`}>
+                <LoginFormContainer
+                    title={'Zresetuj hasło'}
+                    className='w-full flex bg-gray-800 text-white rounded-lg shadow-lg p-6'
+                >
                     <div>
-                        <label>Email</label>
-                        <Input value={email} isLight disabled />
+                        <label className='text-neutral-300'>Email</label>
+                        <Input value={email} isLight disabled className='bg-gray-700 text-white' />
                     </div>
-                    <div css={tw`mt-6`}>
+                    <div className='mt-6'>
                         <Field
                             light
-                            label={'New Password'}
+                            label={'Nowe hasło'}
                             name={'password'}
                             type={'password'}
-                            description={'Passwords must be at least 8 characters in length.'}
+                            description={'Hasła muszą mieć co najmniej 8 znaków.'}
+                            className='bg-gray-700 text-white'
                         />
                     </div>
-                    <div css={tw`mt-6`}>
-                        <Field light label={'Confirm New Password'} name={'passwordConfirmation'} type={'password'} />
+                    <div className='mt-6'>
+                        <Field
+                            light
+                            label={'Potwierdź nowe hasło'}
+                            name={'passwordConfirmation'}
+                            type={'password'}
+                            className='bg-gray-700 text-white'
+                        />
                     </div>
-                    <div css={tw`mt-6`}>
-                        <Button size={'xlarge'} type={'submit'} disabled={isSubmitting} isLoading={isSubmitting}>
-                            Reset Password
+                    <div className='mt-6'>
+                        <Button
+                            size={'xlarge'}
+                            type={'submit'}
+                            disabled={isSubmitting}
+                            isLoading={isSubmitting}
+                            className='bg-blue-600 hover:bg-blue-700 text-white'
+                        >
+                            Zresetuj hasło
                         </Button>
                     </div>
-                    <div css={tw`mt-6 text-center`}>
+                    <div className='mt-6 text-center'>
                         <Link
                             to={'/auth/login'}
-                            css={tw`text-xs text-neutral-500 tracking-wide no-underline uppercase hover:text-neutral-600`}
+                            className='text-xs text-neutral-400 tracking-wide no-underline uppercase hover:text-neutral-300'
                         >
-                            Return to Login
+                            Powrót do logowania
                         </Link>
                     </div>
                 </LoginFormContainer>

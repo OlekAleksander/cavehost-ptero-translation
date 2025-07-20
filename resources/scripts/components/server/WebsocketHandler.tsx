@@ -112,7 +112,7 @@ export default () => {
                         <>
                             <Spinner size={'small'} />
                             <p css={tw`ml-2 text-sm text-red-100`}>
-                                We&apos;re having some trouble connecting to your server, please wait...
+                                Występuje problem z połączeniem z Twoim serwerem, proszę czekać...
                             </p>
                         </>
                     ) : (

@@ -28,6 +28,7 @@ interface RouteDefinition {
     // but no navigation link is displayed in the sub-navigation menu.
     name: string | undefined;
     component: React.ComponentType;
+    icon?: string;
     exact?: boolean;
 }
 
@@ -46,99 +47,115 @@ export default {
     account: [
         {
             path: '/',
-            name: 'Account',
+            name: 'Konto',
             component: AccountOverviewContainer,
             exact: true,
+            icon: 'fa-user',
         },
         {
             path: '/api',
-            name: 'API Credentials',
+            name: 'Klucze API',
             component: AccountApiContainer,
+            icon: 'fa-key',
         },
         {
             path: '/ssh',
-            name: 'SSH Keys',
+            name: 'Klucze SSH',
             component: AccountSSHContainer,
+            icon: 'fa-terminal',
         },
         {
             path: '/activity',
-            name: 'Activity',
+            name: 'Aktywność',
             component: ActivityLogContainer,
+            icon: 'fa-list',
         },
     ],
     server: [
         {
             path: '/',
             permission: null,
-            name: 'Console',
+            name: 'Konsola',
             component: ServerConsole,
             exact: true,
+            icon: 'fa-desktop',
         },
         {
             path: '/files',
             permission: 'file.*',
-            name: 'Files',
+            name: 'Pliki',
             component: FileManagerContainer,
+            icon: 'fa-folder',
         },
         {
             path: '/files/:action(edit|new)',
             permission: 'file.*',
             name: undefined,
             component: FileEditContainer,
+            icon: 'fa-edit',
         },
         {
             path: '/databases',
             permission: 'database.*',
-            name: 'Databases',
+            name: 'Baza danych',
             component: DatabasesContainer,
+            icon: 'fa-database',
         },
         {
             path: '/schedules',
             permission: 'schedule.*',
-            name: 'Schedules',
+            name: 'Zadania serwerowe',
             component: ScheduleContainer,
+            icon: 'fa-calendar',
         },
         {
             path: '/schedules/:id',
             permission: 'schedule.*',
             name: undefined,
             component: ScheduleEditContainer,
+            icon: 'fa-calendar-alt',
         },
         {
             path: '/users',
             permission: 'user.*',
-            name: 'Users',
+            name: 'Użytkownicy',
             component: UsersContainer,
+            icon: 'fa-users',
         },
         {
             path: '/backups',
             permission: 'backup.*',
-            name: 'Backups',
+            name: 'Kopie zapasowe',
             component: BackupContainer,
+            icon: 'fa-cloud',
         },
         {
             path: '/network',
             permission: 'allocation.*',
-            name: 'Network',
+            name: 'Sieć',
             component: NetworkContainer,
+            icon: 'fa-network-wired',
         },
         {
             path: '/startup',
             permission: 'startup.*',
-            name: 'Startup',
+            name: 'Parametry startowe',
             component: StartupContainer,
+            icon: 'fa-play',
         },
         {
             path: '/settings',
             permission: ['settings.*', 'file.sftp'],
-            name: 'Settings',
+            name: 'Ustawienia / FTP',
             component: SettingsContainer,
+            icon: 'fa-cogs',
         },
         {
             path: '/activity',
             permission: 'activity.*',
-            name: 'Activity',
+            name: 'Logi',
             component: ServerActivityLogContainer,
+            icon: 'fa-list-alt',
         },
     ],
 } as Routes;

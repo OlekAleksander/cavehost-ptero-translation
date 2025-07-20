@@ -30,21 +30,21 @@ export default () => {
     const { state } = useLocation<undefined | { twoFactorRedirect?: boolean }>();
 
     return (
-        <PageContentBlock title={'Account Overview'}>
+        <PageContentBlock title={'Przegląd konta'}>
             {state?.twoFactorRedirect && (
-                <MessageBox title={'2-Factor Required'} type={'error'}>
-                    Your account must have two-factor authentication enabled in order to continue.
+                <MessageBox title={'Wymagane uwierzytelnianie dwuskładnikowe'} type={'error'}>
+                    Twoje konto musi mieć włączone uwierzytelnianie dwuskładnikowe, aby kontynuować.
                 </MessageBox>
             )}
 
-            <Container css={[tw`lg:grid lg:grid-cols-3 mb-10`, state?.twoFactorRedirect ? tw`mt-4` : tw`mt-10`]}>
-                <ContentBox title={'Update Password'} showFlashes={'account:password'}>
+            <Container className={`lg:grid lg:grid-cols-3 mb-10 ${state?.twoFactorRedirect ? 'mt-4' : 'mt-10'}`}>
+                <ContentBox title={'Zaktualizuj hasło'} showFlashes={'account:password'}>
                     <UpdatePasswordForm />
                 </ContentBox>
-                <ContentBox css={tw`mt-8 sm:mt-0 sm:ml-8`} title={'Update Email Address'} showFlashes={'account:email'}>
+                <ContentBox className="mt-8 sm:mt-0 sm:ml-8" title={'Zaktualizuj adres e-mail'} showFlashes={'account:email'}>
                     <UpdateEmailAddressForm />
                 </ContentBox>
-                <ContentBox css={tw`md:ml-8 mt-8 md:mt-0`} title={'Two-Step Verification'}>
+                <ContentBox className="md:ml-8 mt-8 md:mt-0" title={'Weryfikacja dwuetapowa'}>
                     <ConfigureTwoFactorForm />
                 </ContentBox>
             </Container>

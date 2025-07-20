@@ -17,11 +17,11 @@ interface Values {
 }
 
 const schema = Yup.object().shape({
-    current: Yup.string().min(1).required('You must provide your current password.'),
+    current: Yup.string().min(1).required('Musisz podać swoje obecne hasło.'),
     password: Yup.string().min(8).required(),
     confirmPassword: Yup.string().test(
         'password',
-        'Password confirmation does not match the password you entered.',
+        'Potwierdzenie hasła nie pasuje do wprowadzonego hasła.',
         function (value) {
             return value === this.parent.password;
         }
@@ -47,7 +47,7 @@ export default () => {
                 addFlash({
                     key: 'account:password',
                     type: 'error',
-                    title: 'Error',
+                    title: 'Błąd',
                     message: httpErrorToHuman(error),
                 })
             )
@@ -69,16 +69,16 @@ export default () => {
                                 id={'current_password'}
                                 type={'password'}
                                 name={'current'}
-                                label={'Current Password'}
+                                label={'Obecne hasło'}
                             />
                             <div css={tw`mt-6`}>
                                 <Field
                                     id={'new_password'}
                                     type={'password'}
                                     name={'password'}
-                                    label={'New Password'}
+                                    label={'Nowe hasło'}
                                     description={
-                                        'Your new password should be at least 8 characters in length and unique to this website.'
+                                        'Twoje nowe hasło powinno mieć co najmniej 8 znaków i być unikalne dla tej strony.'
                                     }
                                 />
                             </div>
@@ -87,11 +87,11 @@ export default () => {
                                     id={'confirm_new_password'}
                                     type={'password'}
                                     name={'confirmPassword'}
-                                    label={'Confirm New Password'}
+                                    label={'Potwierdź nowe hasło'}
                                 />
                             </div>
                             <div css={tw`mt-6`}>
-                                <Button disabled={isSubmitting || !isValid}>Update Password</Button>
+                                <Button disabled={isSubmitting || !isValid}>Zaktualizuj hasło</Button>
                             </div>
                         </Form>
                     </React.Fragment>

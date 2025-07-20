@@ -42,48 +42,47 @@ export default () => {
     };
 
     return (
-        <PageContentBlock title={'Account API'}>
+        <PageContentBlock title={'API konta'}>
             <FlashMessageRender byKey={'account'} />
-            <div css={tw`md:flex flex-nowrap my-10`}>
-                <ContentBox title={'Create API Key'} css={tw`flex-none w-full md:w-1/2`}>
+            <div className="md:flex flex-nowrap my-10">
+                <ContentBox title={'Utwórz klucz API'} className="flex-none w-full md:w-1/2">
                     <CreateApiKeyForm onKeyCreated={(key) => setKeys((s) => [...s!, key])} />
                 </ContentBox>
-                <ContentBox title={'API Keys'} css={tw`flex-1 overflow-hidden mt-8 md:mt-0 md:ml-8`}>
+                <ContentBox title={'Klucze API'} className="flex-1 overflow-hidden mt-8 md:mt-0 md:ml-8">
                     <SpinnerOverlay visible={loading} />
                     <Dialog.Confirm
-                        title={'Delete API Key'}
-                        confirm={'Delete Key'}
+                        title={'Usuń klucz API'}
+                        confirm={'Usuń klucz'}
                         open={!!deleteIdentifier}
                         onClose={() => setDeleteIdentifier('')}
                         onConfirmed={() => doDeletion(deleteIdentifier)}
                     >
-                        All requests using the <Code>{deleteIdentifier}</Code> key will be invalidated.
+                        Wszystkie żądania używające klucza <Code>{deleteIdentifier}</Code> zostaną unieważnione.
                     </Dialog.Confirm>
                     {keys.length === 0 ? (
-                        <p css={tw`text-center text-sm`}>
-                            {loading ? 'Loading...' : 'No API keys exist for this account.'}
+                        <p className="text-center text-sm">
+                            {loading ? 'Ładowanie...' : 'Brak kluczy API dla tego konta.'}
                         </p>
                     ) : (
                         keys.map((key, index) => (
                             <GreyRowBox
                                 key={key.identifier}
-                                css={[tw`bg-neutral-600 flex items-center`, index > 0 && tw`mt-2`]}
-                            >
-                                <FontAwesomeIcon icon={faKey} css={tw`text-neutral-300`} />
-                                <div css={tw`ml-4 flex-1 overflow-hidden`}>
-                                    <p css={tw`text-sm break-words`}>{key.description}</p>
-                                    <p css={tw`text-2xs text-neutral-300 uppercase`}>
-                                        Last used:&nbsp;
-                                        {key.lastUsedAt ? format(key.lastUsedAt, 'MMM do, yyyy HH:mm') : 'Never'}
+                                className={`bg-neutral-600 flex items-center ${index > 0 ? 'mt-2' : ''}`}>
+                                <FontAwesomeIcon icon={faKey} className="text-neutral-300" />
+                                <div className="ml-4 flex-1 overflow-hidden">
+                                    <p className="text-sm break-words">{key.description}</p>
+                                    <p className="text-2xs text-neutral-300 uppercase">
+                                        Ostatnie użycie:&nbsp;
+                                        {key.lastUsedAt ? format(key.lastUsedAt, 'MMM do, yyyy HH:mm') : 'Nigdy'}
                                     </p>
                                 </div>
-                                <p css={tw`text-sm ml-4 hidden md:block`}>
-                                    <code css={tw`font-mono py-1 px-2 bg-neutral-900 rounded`}>{key.identifier}</code>
+                                <p className="text-sm ml-4 hidden md:block">
+                                    <code className="font-mono py-1 px-2 bg-neutral-900 rounded">{key.identifier}</code>
                                 </p>
-                                <button css={tw`ml-4 p-2 text-sm`} onClick={() => setDeleteIdentifier(key.identifier)}>
+                                <button className="ml-4 p-2 text-sm" onClick={() => setDeleteIdentifier(key.identifier)}>
                                     <FontAwesomeIcon
                                         icon={faTrashAlt}
-                                        css={tw`text-neutral-400 hover:text-red-400 transition-colors duration-150`}
+                                        className="text-neutral-400 hover:text-red-400 transition-colors duration-150"
                                     />
                                 </button>
                             </GreyRowBox>

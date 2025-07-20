@@ -37,28 +37,25 @@ export default () => {
     }, []);
 
     return (
-        <TitledGreyBox title={'Reinstall Server'} css={tw`relative`}>
+        <TitledGreyBox title={'Reinstaluj serwer'} css={tw`relative`}>
             <Dialog.Confirm
                 open={modalVisible}
-                title={'Confirm server reinstallation'}
-                confirm={'Yes, reinstall server'}
+                title={'Potwierdź reinstalację serwera'}
+                confirm={'Tak, reinstaluj serwer'}
                 onClose={() => setModalVisible(false)}
                 onConfirmed={reinstall}
             >
-                Your server will be stopped and some files may be deleted or modified during this process, are you sure
-                you wish to continue?
+                Twój serwer zostanie zatrzymany, a niektóre pliki mogą zostać usunięte lub zmodyfikowane podczas tego procesu. Czy na pewno chcesz kontynuować?
             </Dialog.Confirm>
             <p css={tw`text-sm`}>
-                Reinstalling your server will stop it, and then re-run the installation script that initially set it
-                up.&nbsp;
+                Reinstalacja serwera zatrzyma go, a następnie ponownie uruchomi skrypt instalacyjny, który początkowo go skonfigurował.&nbsp;
                 <strong css={tw`font-medium`}>
-                    Some files may be deleted or modified during this process, please back up your data before
-                    continuing.
+                    Niektóre pliki mogą zostać usunięte lub zmodyfikowane podczas tego procesu, wykonaj kopię zapasową danych przed kontynuacją.
                 </strong>
             </p>
             <div css={tw`mt-6 text-right`}>
                 <Button.Danger variant={Button.Variants.Secondary} onClick={() => setModalVisible(true)}>
-                    Reinstall Server
+                    Reinstaluj serwer
                 </Button.Danger>
             </div>
         </TitledGreyBox>

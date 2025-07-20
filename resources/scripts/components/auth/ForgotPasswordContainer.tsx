@@ -8,7 +8,6 @@ import { useStoreState } from 'easy-peasy';
 import Field from '@/components/elements/Field';
 import { Formik, FormikHelpers } from 'formik';
 import { object, string } from 'yup';
-import tw from 'twin.macro';
 import Button from '@/components/elements/Button';
 import Reaptcha from 'reaptcha';
 import useFlash from '@/plugins/useFlash';
@@ -67,24 +66,24 @@ export default () => {
             initialValues={{ email: '' }}
             validationSchema={object().shape({
                 email: string()
-                    .email('A valid email address must be provided to continue.')
-                    .required('A valid email address must be provided to continue.'),
+                    .email('Należy podać poprawny adres e-mail, aby kontynuować.')
+                    .required('Należy podać poprawny adres e-mail, aby kontynuować.'),
             })}
         >
             {({ isSubmitting, setSubmitting, submitForm }) => (
-                <LoginFormContainer title={'Request Password Reset'} css={tw`w-full flex`}>
+                <LoginFormContainer title={'Zresetuj hasło'} className='w-full flex'>
                     <Field
-                        light
+                        light={false}
                         label={'Email'}
                         description={
-                            'Enter your account email address to receive instructions on resetting your password.'
+                            'Podaj adres e-mail swojego konta, aby otrzymać instrukcje dotyczące resetowania hasła.'
                         }
                         name={'email'}
                         type={'email'}
                     />
-                    <div css={tw`mt-6`}>
+                    <div className='mt-6'>
                         <Button type={'submit'} size={'xlarge'} disabled={isSubmitting} isLoading={isSubmitting}>
-                            Send Email
+                            Wyślij e-mail
                         </Button>
                     </div>
                     {recaptchaEnabled && (
@@ -102,12 +101,12 @@ export default () => {
                             }}
                         />
                     )}
-                    <div css={tw`mt-6 text-center`}>
+                    <div className='mt-6 text-center'>
                         <Link
                             to={'/auth/login'}
-                            css={tw`text-xs text-neutral-500 tracking-wide uppercase no-underline hover:text-neutral-700`}
+                            className='text-xs text-neutral-500 tracking-wide uppercase no-underline hover:text-neutral-700'
                         >
-                            Return to Login
+                            Powrót do logowania
                         </Link>
                     </div>
                 </LoginFormContainer>

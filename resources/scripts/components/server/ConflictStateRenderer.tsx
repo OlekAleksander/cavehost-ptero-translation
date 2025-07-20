@@ -14,30 +14,30 @@ export default () => {
 
     return status === 'installing' || status === 'install_failed' || status === 'reinstall_failed' ? (
         <ScreenBlock
-            title={'Running Installer'}
+            title={'Instalator w trakcie działania'}
             image={ServerInstallSvg}
-            message={'Your server should be ready soon, please try again in a few minutes.'}
+            message={'Twój serwer powinien być gotowy wkrótce, spróbuj ponownie za kilka minut.'}
         />
     ) : status === 'suspended' ? (
         <ScreenBlock
-            title={'Server Suspended'}
+            title={'Serwer zawieszony'}
             image={ServerErrorSvg}
-            message={'This server is suspended and cannot be accessed.'}
+            message={'Ten serwer jest zawieszony i nie możesz uzyskać do niego dostępu.'}
         />
     ) : isNodeUnderMaintenance ? (
         <ScreenBlock
-            title={'Node under Maintenance'}
+            title={'Węzeł w trakcie konserwacji'}
             image={ServerErrorSvg}
-            message={'The node of this server is currently under maintenance.'}
+            message={'Węzeł tego serwera jest obecnie w trakcie konserwacji.'}
         />
     ) : (
         <ScreenBlock
-            title={isTransferring ? 'Transferring' : 'Restoring from Backup'}
+            title={isTransferring ? 'Transferowanie' : 'Przywracanie z kopii zapasowej'}
             image={ServerRestoreSvg}
             message={
                 isTransferring
-                    ? 'Your server is being transferred to a new node, please check back later.'
-                    : 'Your server is currently being restored from a backup, please check back in a few minutes.'
+                    ? 'Twój serwer jest przenoszony na nowy węzeł, sprawdź ponownie później.'
+                    : 'Twój serwer jest obecnie przywracany z kopii zapasowej, sprawdź ponownie za kilka minut.'
             }
         />
     );

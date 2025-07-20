@@ -80,7 +80,7 @@ export default ({ ...props }: Props) => {
         <Formik
             onSubmit={search}
             validationSchema={object().shape({
-                term: string().min(3, 'Please enter at least three characters to begin searching.'),
+                term: string().min(3, 'Wpisz co najmniej trzy znaki, aby rozpocząć wyszukiwanie.'),
             })}
             initialValues={{ term: '' } as Values}
         >
@@ -89,8 +89,8 @@ export default ({ ...props }: Props) => {
                     <Form>
                         <FormikFieldWrapper
                             name={'term'}
-                            label={'Search term'}
-                            description={'Enter a server name, uuid, or allocation to begin searching.'}
+
+                            description={'Wpisz nazwę serwera, aby rozpocząć wyszukiwanie.'}
                         >
                             <SearchWatcher />
                             <InputSpinner visible={isSubmitting}>

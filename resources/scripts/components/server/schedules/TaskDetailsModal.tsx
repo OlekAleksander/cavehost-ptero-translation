@@ -119,25 +119,25 @@ const TaskDetailsModal = ({ schedule, task }: Props) => {
             {({ isSubmitting, values }) => (
                 <Form css={tw`m-0`}>
                     <FlashMessageRender byKey={'schedule:task'} css={tw`mb-4`} />
-                    <h2 css={tw`text-2xl mb-6`}>{task ? 'Edit Task' : 'Create Task'}</h2>
+                    <h2 css={tw`text-2xl mb-6`}>{task ? 'Edytuj zadanie' : 'Utwórz zadanie'}</h2>
                     <div css={tw`flex`}>
                         <div css={tw`mr-2 w-1/3`}>
-                            <Label>Action</Label>
+                            <Label>Akcja</Label>
                             <ActionListener />
                             <FormikFieldWrapper name={'action'}>
                                 <FormikField as={Select} name={'action'}>
-                                    <option value={'command'}>Send command</option>
-                                    <option value={'power'}>Send power action</option>
-                                    <option value={'backup'}>Create backup</option>
+                                    <option value={'command'}>Wyślij komendę</option>
+                                    <option value={'power'}>Wyślij akcję zasilania</option>
+                                    <option value={'backup'}>Utwórz kopię zapasową</option>
                                 </FormikField>
                             </FormikFieldWrapper>
                         </div>
                         <div css={tw`flex-1 ml-6`}>
                             <Field
                                 name={'timeOffset'}
-                                label={'Time offset (in seconds)'}
+                                label={'Opóźnienie (w sekundach)'}
                                 description={
-                                    'The amount of time to wait after the previous task executes before running this one. If this is the first task on a schedule this will not be applied.'
+                                    'Czas oczekiwania po wykonaniu poprzedniego zadania przed uruchomieniem tego. Jeśli to jest pierwsze zadanie w harmonogramie, opóźnienie nie zostanie zastosowane.'
                                 }
                             />
                         </div>
@@ -145,30 +145,30 @@ const TaskDetailsModal = ({ schedule, task }: Props) => {
                     <div css={tw`mt-6`}>
                         {values.action === 'command' ? (
                             <div>
-                                <Label>Payload</Label>
+                                <Label>Wartość</Label>
                                 <FormikFieldWrapper name={'payload'}>
                                     <FormikField as={Textarea} name={'payload'} rows={6} />
                                 </FormikFieldWrapper>
                             </div>
                         ) : values.action === 'power' ? (
                             <div>
-                                <Label>Payload</Label>
+                                <Label>Wartość</Label>
                                 <FormikFieldWrapper name={'payload'}>
                                     <FormikField as={Select} name={'payload'}>
-                                        <option value={'start'}>Start the server</option>
-                                        <option value={'restart'}>Restart the server</option>
-                                        <option value={'stop'}>Stop the server</option>
-                                        <option value={'kill'}>Terminate the server</option>
+                                        <option value={'start'}>Uruchom serwer</option>
+                                        <option value={'restart'}>Restartuj serwer</option>
+                                        <option value={'stop'}>Zatrzymaj serwer</option>
+                                        <option value={'kill'}>Wymuś zatrzymanie serwera</option>
                                     </FormikField>
                                 </FormikFieldWrapper>
                             </div>
                         ) : (
                             <div>
-                                <Label>Ignored Files</Label>
+                                <Label>Ignorowane pliki</Label>
                                 <FormikFieldWrapper
                                     name={'payload'}
                                     description={
-                                        'Optional. Include the files and folders to be excluded in this backup. By default, the contents of your .pteroignore file will be used. If you have reached your backup limit, the oldest backup will be rotated.'
+                                        'Opcjonalnie. Podaj pliki i foldery, które mają być wykluczone z tej kopii zapasowej. Domyślnie zostanie użyta zawartość pliku .pteroignore. Jeśli osiągnięto limit kopii zapasowych, najstarsza zostanie nadpisana.'
                                     }
                                 >
                                     <FormikField as={Textarea} name={'payload'} rows={6} />
@@ -179,13 +179,13 @@ const TaskDetailsModal = ({ schedule, task }: Props) => {
                     <div css={tw`mt-6 bg-neutral-700 border border-neutral-800 shadow-inner p-4 rounded`}>
                         <FormikSwitch
                             name={'continueOnFailure'}
-                            description={'Future tasks will be run when this task fails.'}
-                            label={'Continue on Failure'}
+                            description={'Kolejne zadania zostaną uruchomione nawet jeśli to zadanie się nie powiedzie.'}
+                            label={'Kontynuuj po błędzie'}
                         />
                     </div>
                     <div css={tw`flex justify-end mt-6`}>
                         <Button type={'submit'} disabled={isSubmitting}>
-                            {task ? 'Save Changes' : 'Create Task'}
+                            {task ? 'Zapisz zmiany' : 'Utwórz zadanie'}
                         </Button>
                     </div>
                 </Form>

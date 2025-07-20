@@ -120,19 +120,19 @@ export default ({ server, className }: { server: Server; className?: string }) =
                     isSuspended ? (
                         <div css={tw`flex-1 text-center`}>
                             <span css={tw`bg-red-500 rounded px-2 py-1 text-red-100 text-xs`}>
-                                {server.status === 'suspended' ? 'Suspended' : 'Connection Error'}
+                                {server.status === 'suspended' ? 'Zawieszony' : 'Błąd połączenia'}
                             </span>
                         </div>
                     ) : server.isTransferring || server.status ? (
                         <div css={tw`flex-1 text-center`}>
-                            <span css={tw`bg-neutral-500 rounded px-2 py-1 text-neutral-100 text-xs`}>
+                            <span className="bg-neutral-500 rounded px-2 py-1 text-neutral-100 text-xs">
                                 {server.isTransferring
-                                    ? 'Transferring'
+                                    ? 'Przenoszenie'
                                     : server.status === 'installing'
-                                    ? 'Installing'
+                                    ? 'Instalowanie'
                                     : server.status === 'restoring_backup'
-                                    ? 'Restoring Backup'
-                                    : 'Unavailable'}
+                                    ? 'Przywracanie kopii zapasowej'
+                                    : 'Niedostępny'}
                             </span>
                         </div>
                     ) : (
@@ -140,32 +140,38 @@ export default ({ server, className }: { server: Server; className?: string }) =
                     )
                 ) : (
                     <React.Fragment>
-                        <div css={tw`flex-1 ml-4 sm:block hidden`}>
-                            <div css={tw`flex justify-center`}>
+                        <div className="flex-1 ml-4 sm:block hidden">
+                            <div className="flex justify-center">
                                 <Icon icon={faMicrochip} $alarm={alarms.cpu} />
                                 <IconDescription $alarm={alarms.cpu}>
                                     {stats.cpuUsagePercent.toFixed(2)} %
                                 </IconDescription>
                             </div>
-                            <p css={tw`text-xs text-neutral-600 text-center mt-1`}>of {cpuLimit}</p>
+                            <p className="text-xs text-neutral-600 text-center mt-1">
+                                z {cpuLimit}
+                            </p>
                         </div>
-                        <div css={tw`flex-1 ml-4 sm:block hidden`}>
-                            <div css={tw`flex justify-center`}>
+                        <div className="flex-1 ml-4 sm:block hidden">
+                            <div className="flex justify-center">
                                 <Icon icon={faMemory} $alarm={alarms.memory} />
                                 <IconDescription $alarm={alarms.memory}>
                                     {bytesToString(stats.memoryUsageInBytes)}
                                 </IconDescription>
                             </div>
-                            <p css={tw`text-xs text-neutral-600 text-center mt-1`}>of {memoryLimit}</p>
+                            <p className="text-xs text-neutral-600 text-center mt-1">
+                                z {memoryLimit}
+                            </p>
                         </div>
-                        <div css={tw`flex-1 ml-4 sm:block hidden`}>
-                            <div css={tw`flex justify-center`}>
+                        <div className="flex-1 ml-4 sm:block hidden">
+                            <div className="flex justify-center">
                                 <Icon icon={faHdd} $alarm={alarms.disk} />
                                 <IconDescription $alarm={alarms.disk}>
                                     {bytesToString(stats.diskUsageInBytes)}
                                 </IconDescription>
                             </div>
-                            <p css={tw`text-xs text-neutral-600 text-center mt-1`}>of {diskLimit}</p>
+                            <p className="text-xs text-neutral-600 text-center mt-1">
+                                z {diskLimit}
+                            </p>
                         </div>
                     </React.Fragment>
                 )}

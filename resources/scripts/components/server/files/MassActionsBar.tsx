@@ -67,21 +67,21 @@ const MassActionsBar = () => {
                     {loadingMessage}
                 </SpinnerOverlay>
                 <Dialog.Confirm
-                    title={'Delete Files'}
+                    title={'Usuń pliki'}
                     open={showConfirm}
-                    confirm={'Delete'}
+                    confirm={'Usuń'}
                     onClose={() => setShowConfirm(false)}
                     onConfirmed={onClickConfirmDeletion}
                 >
                     <p className={'mb-2'}>
-                        Are you sure you want to delete&nbsp;
-                        <span className={'font-semibold text-gray-50'}>{selectedFiles.length} files</span>? This is a
-                        permanent action and the files cannot be recovered.
+                        Czy na pewno chcesz usunąć&nbsp;
+                        <span className={'font-semibold text-gray-50'}>{selectedFiles.length} plików</span>? To jest
+                        operacja nieodwracalna i pliki nie mogą zostać odzyskane.
                     </p>
                     {selectedFiles.slice(0, 15).map((file) => (
                         <li key={file}>{file}</li>
                     ))}
-                    {selectedFiles.length > 15 && <li>and {selectedFiles.length - 15} others</li>}
+                    {selectedFiles.length > 15 && <li>i {selectedFiles.length - 15} innych</li>}
                 </Dialog.Confirm>
                 {showMove && (
                     <RenameFileModal
@@ -96,10 +96,10 @@ const MassActionsBar = () => {
                     <div className={'pointer-events-none fixed bottom-0 mb-6 flex justify-center w-full z-50'}>
                         <Fade timeout={75} in={selectedFiles.length > 0} unmountOnExit>
                             <div css={tw`flex items-center space-x-4 pointer-events-auto rounded p-4 bg-black/50`}>
-                                <Button onClick={() => setShowMove(true)}>Move</Button>
-                                <Button onClick={onClickCompress}>Archive</Button>
+                                <Button onClick={() => setShowMove(true)}>Przenieś</Button>
+                                <Button onClick={onClickCompress}>Archiwizuj</Button>
                                 <Button.Danger variant={Button.Variants.Secondary} onClick={() => setShowConfirm(true)}>
-                                    Delete
+                                    Usuń
                                 </Button.Danger>
                             </div>
                         </Fade>

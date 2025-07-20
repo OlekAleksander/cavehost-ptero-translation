@@ -49,11 +49,11 @@ export default () => {
     }, [error]);
 
     return (
-        <PageContentBlock title={'Dashboard'} showFlashKey={'dashboard'}>
+        <PageContentBlock title={'Panel'} showFlashKey={'dashboard'}>
             {rootAdmin && (
-                <div css={tw`mb-2 flex justify-end items-center`}>
-                    <p css={tw`uppercase text-xs text-neutral-400 mr-2`}>
-                        {showOnlyAdmin ? "Showing others' servers" : 'Showing your servers'}
+                <div className="mb-2 flex justify-end items-center">
+                    <p className="uppercase text-xs text-neutral-400 mr-2">
+                        {showOnlyAdmin ? 'Wyświetlanie serwerów innych użytkowników' : 'Wyświetlanie Twoich serwerów'}
                     </p>
                     <Switch
                         name={'show_all_servers'}
@@ -69,13 +69,13 @@ export default () => {
                     {({ items }) =>
                         items.length > 0 ? (
                             items.map((server, index) => (
-                                <ServerRow key={server.uuid} server={server} css={index > 0 ? tw`mt-2` : undefined} />
+                                <ServerRow key={server.uuid} server={server} className={index > 0 ? 'mt-2' : undefined} />
                             ))
                         ) : (
-                            <p css={tw`text-center text-sm text-neutral-400`}>
+                            <p className="text-center text-sm text-neutral-400">
                                 {showOnlyAdmin
-                                    ? 'There are no other servers to display.'
-                                    : 'There are no servers associated with your account.'}
+                                    ? 'Brak innych serwerów do wyświetlenia.'
+                                    : 'Brak serwerów powiązanych z Twoim kontem.'}
                             </p>
                         )
                     }
