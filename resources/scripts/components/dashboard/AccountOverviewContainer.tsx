@@ -41,10 +41,14 @@ export default () => {
                 <ContentBox title={'Zaktualizuj hasło'} showFlashes={'account:password'}>
                     <UpdatePasswordForm />
                 </ContentBox>
-                <ContentBox className="mt-8 sm:mt-0 sm:ml-8" title={'Zaktualizuj adres e-mail'} showFlashes={'account:email'}>
+                <ContentBox
+                    className='mt-8 sm:mt-0 sm:ml-8'
+                    title={'Zaktualizuj adres e-mail'}
+                    showFlashes={'account:email'}
+                >
                     <UpdateEmailAddressForm />
                 </ContentBox>
-                <ContentBox className="md:ml-8 mt-8 md:mt-0" title={'Weryfikacja dwuetapowa'}>
+                <ContentBox className='md:ml-8 mt-8 md:mt-0' title={'Weryfikacja dwuetapowa'}>
                     <ConfigureTwoFactorForm />
                 </ContentBox>
             </Container>

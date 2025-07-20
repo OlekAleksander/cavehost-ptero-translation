@@ -45,12 +45,15 @@ export default () => {
                 onClose={() => setModalVisible(false)}
                 onConfirmed={reinstall}
             >
-                Twój serwer zostanie zatrzymany, a niektóre pliki mogą zostać usunięte lub zmodyfikowane podczas tego procesu. Czy na pewno chcesz kontynuować?
+                Twój serwer zostanie zatrzymany, a niektóre pliki mogą zostać usunięte lub zmodyfikowane podczas tego
+                procesu. Czy na pewno chcesz kontynuować?
             </Dialog.Confirm>
             <p css={tw`text-sm`}>
-                Reinstalacja serwera zatrzyma go, a następnie ponownie uruchomi skrypt instalacyjny, który początkowo go skonfigurował.&nbsp;
+                Reinstalacja serwera zatrzyma go, a następnie ponownie uruchomi skrypt instalacyjny, który początkowo go
+                skonfigurował.&nbsp;
                 <strong css={tw`font-medium`}>
-                    Niektóre pliki mogą zostać usunięte lub zmodyfikowane podczas tego procesu, wykonaj kopię zapasową danych przed kontynuacją.
+                    Niektóre pliki mogą zostać usunięte lub zmodyfikowane podczas tego procesu, wykonaj kopię zapasową
+                    danych przed kontynuacją.
                 </strong>
             </p>
             <div css={tw`mt-6 text-right`}>

@@ -74,7 +74,8 @@ const ConfigureTwoFactorForm = ({ onTokens }: Props) => {
                 </p>
             </CopyOnClick>
             <p id={'totp-code-description'} className={'mt-6'}>
-                Zeskanuj powyższy kod QR za pomocą wybranej aplikacji do weryfikacji dwuetapowej. Następnie wprowadź wygenerowany 6-cyfrowy kod w poniższe pole.
+                Zeskanuj powyższy kod QR za pomocą wybranej aplikacji do weryfikacji dwuetapowej. Następnie wprowadź
+                wygenerowany 6-cyfrowy kod w poniższe pole.
             </p>
             <Input.Text
                 aria-labelledby={'totp-code-description'}
@@ -86,7 +87,7 @@ const ConfigureTwoFactorForm = ({ onTokens }: Props) => {
                 type={'text'}
                 inputMode={'numeric'}
                 autoComplete={'one-time-code'}
-                pattern={'\d{6}'}
+                pattern={'d{6}'}
             />
             <label htmlFor={'totp-password'} className={'block mt-3'}>
                 Hasło konta

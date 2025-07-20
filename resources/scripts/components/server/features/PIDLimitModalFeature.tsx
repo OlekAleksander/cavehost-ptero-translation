@@ -65,12 +65,14 @@ const PIDLimitModalFeature = () => {
                     <p css={tw`mt-4`}>Ten serwer osiągnął maksymalny limit procesów lub pamięci.</p>
                     <p css={tw`mt-4`}>
                         Zwiększenie wartości <code css={tw`font-mono bg-neutral-900`}>container_pid_limit</code> w
-                        konfiguracji wings, pliku <code css={tw`font-mono bg-neutral-900`}>config.yml</code>, może
-                        pomóc rozwiązać ten problem.
+                        konfiguracji wings, pliku <code css={tw`font-mono bg-neutral-900`}>config.yml</code>, może pomóc
+                        rozwiązać ten problem.
                     </p>
                     <p css={tw`mt-4`}>
-                        <b>Uwaga: Wings musi zostać zrestartowany, aby zmiany w pliku konfiguracyjnym zaczęły
-                        obowiązywać</b>
+                        <b>
+                            Uwaga: Wings musi zostać zrestartowany, aby zmiany w pliku konfiguracyjnym zaczęły
+                            obowiązywać
+                        </b>
                     </p>
                     <div css={tw`mt-8 sm:flex items-center justify-end`}>
                         <Button onClick={() => setVisible(false)} css={tw`w-full sm:w-auto border-transparent`}>
@@ -85,8 +87,8 @@ const PIDLimitModalFeature = () => {
                         <h2 css={tw`text-2xl mb-4 text-neutral-100`}>Prawdopodobnie osiągnięto limit zasobów...</h2>
                     </div>
                     <p css={tw`mt-4`}>
-                        Ten serwer próbuje użyć więcej zasobów niż zostało przydzielone. Skontaktuj się z administratorem
-                        i przekaż mu poniższy błąd.
+                        Ten serwer próbuje użyć więcej zasobów niż zostało przydzielone. Skontaktuj się z
+                        administratorem i przekaż mu poniższy błąd.
                     </p>
                     <p css={tw`mt-4`}>
                         <code css={tw`font-mono bg-neutral-900`}>

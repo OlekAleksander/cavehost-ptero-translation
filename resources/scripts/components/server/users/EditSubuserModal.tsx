@@ -119,7 +119,8 @@ const EditSubuserModal = ({ subuser }: Props) => {
                 {!isRootAdmin && loggedInPermissions[0] !== '*' && (
                     <div css={tw`mt-4 pl-4 py-2 border-l-4 border-cyan-400`}>
                         <p css={tw`text-sm text-neutral-300`}>
-                            Możesz wybrać tylko te uprawnienia, które są obecnie przypisane do Twojego konta podczas tworzenia lub modyfikowania innych użytkowników.
+                            Możesz wybrać tylko te uprawnienia, które są obecnie przypisane do Twojego konta podczas
+                            tworzenia lub modyfikowania innych użytkowników.
                         </p>
                     </div>
                 )}

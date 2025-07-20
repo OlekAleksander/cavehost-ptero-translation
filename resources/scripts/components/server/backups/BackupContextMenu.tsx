@@ -135,7 +135,8 @@ export default ({ backup }: Props) => {
                 onConfirmed={() => doRestorationAction()}
             >
                 <p>
-                    Twój serwer zostanie zatrzymany. Nie będziesz mógł zarządzać zasilaniem, uzyskać dostępu do menedżera plików ani tworzyć dodatkowych kopii zapasowych do czasu zakończenia operacji.
+                    Twój serwer zostanie zatrzymany. Nie będziesz mógł zarządzać zasilaniem, uzyskać dostępu do
+                    menedżera plików ani tworzyć dodatkowych kopii zapasowych do czasu zakończenia operacji.
                 </p>
                 <p css={tw`mt-4 -mb-2 bg-gray-700 p-3 rounded`}>
                     <label htmlFor={'restore_truncate'} css={tw`text-base flex items-center cursor-pointer`}>

@@ -51,8 +51,8 @@ export default () => {
     return (
         <PageContentBlock title={'Panel'} showFlashKey={'dashboard'}>
             {rootAdmin && (
-                <div className="mb-2 flex justify-end items-center">
-                    <p className="uppercase text-xs text-neutral-400 mr-2">
+                <div className='mb-2 flex justify-end items-center'>
+                    <p className='uppercase text-xs text-neutral-400 mr-2'>
                         {showOnlyAdmin ? 'Wyświetlanie serwerów innych użytkowników' : 'Wyświetlanie Twoich serwerów'}
                     </p>
                     <Switch
@@ -69,10 +69,14 @@ export default () => {
                     {({ items }) =>
                         items.length > 0 ? (
                             items.map((server, index) => (
-                                <ServerRow key={server.uuid} server={server} className={index > 0 ? 'mt-2' : undefined} />
+                                <ServerRow
+                                    key={server.uuid}
+                                    server={server}
+                                    className={index > 0 ? 'mt-2' : undefined}
+                                />
                             ))
                         ) : (
-                            <p className="text-center text-sm text-neutral-400">
+                            <p className='text-center text-sm text-neutral-400'>
                                 {showOnlyAdmin
                                     ? 'Brak innych serwerów do wyświetlenia.'
                                     : 'Brak serwerów powiązanych z Twoim kontem.'}

@@ -53,11 +53,13 @@ const SteamDiskSpaceFeature = () => {
                         <h2 css={tw`text-2xl mb-4 text-neutral-100 `}>Brak dostępnego miejsca na dysku...</h2>
                     </div>
                     <p css={tw`mt-4`}>
-                        Ten serwer nie ma wystarczającej ilości wolnego miejsca na dysku i nie może dokończyć instalacji lub aktualizacji.
+                        Ten serwer nie ma wystarczającej ilości wolnego miejsca na dysku i nie może dokończyć instalacji
+                        lub aktualizacji.
                     </p>
                     <p css={tw`mt-4`}>
                         Upewnij się, że maszyna posiada wystarczającą ilość miejsca na dysku, wpisując{' '}
-                        <code css={tw`font-mono bg-neutral-900 rounded py-1 px-2`}>df -h</code> na maszynie hostującej ten serwer. Usuń pliki lub zwiększ dostępne miejsce na dysku, aby rozwiązać problem.
+                        <code css={tw`font-mono bg-neutral-900 rounded py-1 px-2`}>df -h</code> na maszynie hostującej
+                        ten serwer. Usuń pliki lub zwiększ dostępne miejsce na dysku, aby rozwiązać problem.
                     </p>
                     <div css={tw`mt-8 sm:flex items-center justify-end`}>
                         <Button onClick={() => setVisible(false)} css={tw`w-full sm:w-auto border-transparent`}>
@@ -71,7 +73,9 @@ const SteamDiskSpaceFeature = () => {
                         <h2 css={tw`text-2xl mb-4 text-neutral-100`}>Brak dostępnego miejsca na dysku...</h2>
                     </div>
                     <p css={tw`mt-4`}>
-                        Ten serwer nie ma wystarczającej ilości wolnego miejsca na dysku i nie może dokończyć instalacji lub aktualizacji. Skontaktuj się z administratorem i poinformuj go o problemach z miejscem na dysku.
+                        Ten serwer nie ma wystarczającej ilości wolnego miejsca na dysku i nie może dokończyć instalacji
+                        lub aktualizacji. Skontaktuj się z administratorem i poinformuj go o problemach z miejscem na
+                        dysku.
                     </p>
                     <div css={tw`mt-8 sm:flex items-center justify-end`}>
                         <Button onClick={() => setVisible(false)} css={tw`w-full sm:w-auto border-transparent`}>

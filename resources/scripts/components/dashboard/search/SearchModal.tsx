@@ -89,7 +89,6 @@ export default ({ ...props }: Props) => {
                     <Form>
                         <FormikFieldWrapper
                             name={'term'}
-
                             description={'Wpisz nazwę serwera, aby rozpocząć wyszukiwanie.'}
                         >
                             <SearchWatcher />

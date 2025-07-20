@@ -44,11 +44,11 @@ export default () => {
     return (
         <PageContentBlock title={'API konta'}>
             <FlashMessageRender byKey={'account'} />
-            <div className="md:flex flex-nowrap my-10">
-                <ContentBox title={'Utwórz klucz API'} className="flex-none w-full md:w-1/2">
+            <div className='md:flex flex-nowrap my-10'>
+                <ContentBox title={'Utwórz klucz API'} className='flex-none w-full md:w-1/2'>
                     <CreateApiKeyForm onKeyCreated={(key) => setKeys((s) => [...s!, key])} />
                 </ContentBox>
-                <ContentBox title={'Klucze API'} className="flex-1 overflow-hidden mt-8 md:mt-0 md:ml-8">
+                <ContentBox title={'Klucze API'} className='flex-1 overflow-hidden mt-8 md:mt-0 md:ml-8'>
                     <SpinnerOverlay visible={loading} />
                     <Dialog.Confirm
                         title={'Usuń klucz API'}
@@ -60,29 +60,33 @@ export default () => {
                         Wszystkie żądania używające klucza <Code>{deleteIdentifier}</Code> zostaną unieważnione.
                     </Dialog.Confirm>
                     {keys.length === 0 ? (
-                        <p className="text-center text-sm">
+                        <p className='text-center text-sm'>
                             {loading ? 'Ładowanie...' : 'Brak kluczy API dla tego konta.'}
                         </p>
                     ) : (
                         keys.map((key, index) => (
                             <GreyRowBox
                                 key={key.identifier}
-                                className={`bg-neutral-600 flex items-center ${index > 0 ? 'mt-2' : ''}`}>
-                                <FontAwesomeIcon icon={faKey} className="text-neutral-300" />
-                                <div className="ml-4 flex-1 overflow-hidden">
-                                    <p className="text-sm break-words">{key.description}</p>
-                                    <p className="text-2xs text-neutral-300 uppercase">
+                                className={`bg-neutral-600 flex items-center ${index > 0 ? 'mt-2' : ''}`}
+                            >
+                                <FontAwesomeIcon icon={faKey} className='text-neutral-300' />
+                                <div className='ml-4 flex-1 overflow-hidden'>
+                                    <p className='text-sm break-words'>{key.description}</p>
+                                    <p className='text-2xs text-neutral-300 uppercase'>
                                         Ostatnie użycie:&nbsp;
                                         {key.lastUsedAt ? format(key.lastUsedAt, 'MMM do, yyyy HH:mm') : 'Nigdy'}
                                     </p>
                                 </div>
-                                <p className="text-sm ml-4 hidden md:block">
-                                    <code className="font-mono py-1 px-2 bg-neutral-900 rounded">{key.identifier}</code>
+                                <p className='text-sm ml-4 hidden md:block'>
+                                    <code className='font-mono py-1 px-2 bg-neutral-900 rounded'>{key.identifier}</code>
                                 </p>
-                                <button className="ml-4 p-2 text-sm" onClick={() => setDeleteIdentifier(key.identifier)}>
+                                <button
+                                    className='ml-4 p-2 text-sm'
+                                    onClick={() => setDeleteIdentifier(key.identifier)}
+                                >
                                     <FontAwesomeIcon
                                         icon={faTrashAlt}
-                                        className="text-neutral-400 hover:text-red-400 transition-colors duration-150"
+                                        className='text-neutral-400 hover:text-red-400 transition-colors duration-150'
                                     />
                                 </button>
                             </GreyRowBox>

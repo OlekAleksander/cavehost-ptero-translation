@@ -45,7 +45,8 @@ export default () => {
                                 <div css={tw`flex-1`}>
                                     <div css={tw`border-l-4 border-cyan-500 p-3`}>
                                         <p css={tw`text-xs text-neutral-200`}>
-                                            Twoje hasło SFTP jest takie samo jak hasło używane do logowania w tym panelu.
+                                            Twoje hasło SFTP jest takie samo jak hasło używane do logowania w tym
+                                            panelu.
                                         </p>
                                     </div>
                                 </div>

@@ -125,7 +125,7 @@ export default ({ server, className }: { server: Server; className?: string }) =
                         </div>
                     ) : server.isTransferring || server.status ? (
                         <div css={tw`flex-1 text-center`}>
-                            <span className="bg-neutral-500 rounded px-2 py-1 text-neutral-100 text-xs">
+                            <span className='bg-neutral-500 rounded px-2 py-1 text-neutral-100 text-xs'>
                                 {server.isTransferring
                                     ? 'Przenoszenie'
                                     : server.status === 'installing'
@@ -140,38 +140,32 @@ export default ({ server, className }: { server: Server; className?: string }) =
                     )
                 ) : (
                     <React.Fragment>
-                        <div className="flex-1 ml-4 sm:block hidden">
-                            <div className="flex justify-center">
+                        <div className='flex-1 ml-4 sm:block hidden'>
+                            <div className='flex justify-center'>
                                 <Icon icon={faMicrochip} $alarm={alarms.cpu} />
                                 <IconDescription $alarm={alarms.cpu}>
                                     {stats.cpuUsagePercent.toFixed(2)} %
                                 </IconDescription>
                             </div>
-                            <p className="text-xs text-neutral-600 text-center mt-1">
-                                z {cpuLimit}
-                            </p>
+                            <p className='text-xs text-neutral-600 text-center mt-1'>z {cpuLimit}</p>
                         </div>
-                        <div className="flex-1 ml-4 sm:block hidden">
-                            <div className="flex justify-center">
+                        <div className='flex-1 ml-4 sm:block hidden'>
+                            <div className='flex justify-center'>
                                 <Icon icon={faMemory} $alarm={alarms.memory} />
                                 <IconDescription $alarm={alarms.memory}>
                                     {bytesToString(stats.memoryUsageInBytes)}
                                 </IconDescription>
                             </div>
-                            <p className="text-xs text-neutral-600 text-center mt-1">
-                                z {memoryLimit}
-                            </p>
+                            <p className='text-xs text-neutral-600 text-center mt-1'>z {memoryLimit}</p>
                         </div>
-                        <div className="flex-1 ml-4 sm:block hidden">
-                            <div className="flex justify-center">
+                        <div className='flex-1 ml-4 sm:block hidden'>
+                            <div className='flex justify-center'>
                                 <Icon icon={faHdd} $alarm={alarms.disk} />
                                 <IconDescription $alarm={alarms.disk}>
                                     {bytesToString(stats.diskUsageInBytes)}
                                 </IconDescription>
                             </div>
-                            <p className="text-xs text-neutral-600 text-center mt-1">
-                                z {diskLimit}
-                            </p>
+                            <p className='text-xs text-neutral-600 text-center mt-1'>z {diskLimit}</p>
                         </div>
                     </React.Fragment>
                 )}

@@ -86,7 +86,9 @@ const GSLTokenModalFeature = () => {
                         <Field
                             name={'gslToken'}
                             label={'Token GSL'}
-                            description={'Odwiedź https://steamcommunity.com/dev/managegameservers, aby wygenerować token.'}
+                            description={
+                                'Odwiedź https://steamcommunity.com/dev/managegameservers, aby wygenerować token.'
+                            }
                             autoFocus
                         />
                     </div>

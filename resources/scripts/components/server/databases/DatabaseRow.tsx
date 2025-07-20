@@ -74,7 +74,8 @@ export default ({ database, className }: Props) => {
                         <FlashMessageRender byKey={'database:delete'} css={tw`mb-6`} />
                         <h2 css={tw`text-2xl mb-6`}>Potwierdź usunięcie bazy danych</h2>
                         <p css={tw`text-sm`}>
-                            Usunięcie bazy danych jest nieodwracalne. Spowoduje trwałe usunięcie bazy <strong>{database.name}</strong> oraz wszystkich powiązanych danych.
+                            Usunięcie bazy danych jest nieodwracalne. Spowoduje trwałe usunięcie bazy{' '}
+                            <strong>{database.name}</strong> oraz wszystkich powiązanych danych.
                         </p>
                         <Form css={tw`m-0 mt-6`}>
                             <Field

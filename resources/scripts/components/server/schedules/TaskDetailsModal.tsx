@@ -179,7 +179,9 @@ const TaskDetailsModal = ({ schedule, task }: Props) => {
                     <div css={tw`mt-6 bg-neutral-700 border border-neutral-800 shadow-inner p-4 rounded`}>
                         <FormikSwitch
                             name={'continueOnFailure'}
-                            description={'Kolejne zadania zostaną uruchomione nawet jeśli to zadanie się nie powiedzie.'}
+                            description={
+                                'Kolejne zadania zostaną uruchomione nawet jeśli to zadanie się nie powiedzie.'
+                            }
                             label={'Kontynuuj po błędzie'}
                         />
                     </div>
